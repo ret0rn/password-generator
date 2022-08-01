@@ -13,8 +13,8 @@ docker run -p 80:80 password-generator
 
 ### Usage 
 
-|Endpoint | Params | Description|
-|---------|--------|------------|
-|```/generate```| ```length: <uint>``` <br> ```symbols: <str>```| Generates a password of the specified ```length``` and including the specified ```symbols```
+|Endpoint | Method | Params | Description|
+|---------|--------|------------|--------|
+|```/generate```| ```POST```| ```length: <uint>``` <br> ```symbols: <str>```| Generates a password of the specified ```length``` and including the specified ```symbols```
 
 
