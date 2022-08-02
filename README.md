@@ -1,10 +1,15 @@
 # Password Generator
 A simple web API designed to generate passwords
 
-### Insatll
+### Setup
+
+```git
+git clone https://github.com/ret0rn/password-generator.git
+```
+
 
 #### Docker
-```cmd
+```
 docker build -t password-generator .
 docker run -p 80:80 password-generator
 ```
