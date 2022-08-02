@@ -1,8 +1,7 @@
 # Password Generator
 A simple web API designed to generate passwords
 
-![GitHub](https://img.shields.io/github/license/ret0rn/password-generator?style=plastic)(https://github.com/ret0rn/password-generator/blob/main/LICENCE)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ret0rn/password-generator?style=plastic)(https://github.com/ret0rn/password-generator/blob/main/go.mod)
+[![GitHub](https://img.shields.io/github/license/ret0rn/password-generator?style=plastic)](https://github.com/ret0rn/password-generator/blob/main/LICENCE)[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ret0rn/password-generator?style=plastic)](https://github.com/ret0rn/password-generator/blob/main/go.mod)
 
 ### Setup
 
