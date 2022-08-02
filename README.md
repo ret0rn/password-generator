@@ -5,18 +5,21 @@ A simple web API designed to generate passwords
 
 ### Setup
 
-```git
+```
 git clone https://github.com/ret0rn/password-generator.git
 ```
 
 
 #### Docker
 ```
-docker build -t password-generator .
-docker run -p 80:80 password-generator
+docker build --no-cache --rm -t password-generator .
+docker run --rm -p 80:80 password-generator 
 ```
 
-
+#### Makefile
+```
+make run
+```
 
 ### Usage 
 

@@ -6,5 +6,5 @@ COPY go.sum .
 RUN go mod download
 COPY . .
 EXPOSE 80
-RUN go build -o /password-generator cmd/main/main.go 
+RUN go build -o /password-generator cmd/main/main.go
 CMD ["/password-generator"]

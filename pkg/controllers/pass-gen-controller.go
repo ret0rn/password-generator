@@ -7,8 +7,8 @@ import (
 )
 
 type requestBody struct {
-	Length  uint   `json:"length"`
-	Symbols string `json:"symbols"`
+	Length  uint   `json:"length,omitempty"`
+	Symbols string `json:"symbols,omitempty"`
 }
 
 type responseBody struct {
@@ -16,6 +16,19 @@ type responseBody struct {
 }
 
 const dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+
+func generator(length uint, symbols string) string {
+	password := make([]byte, length)
+	for i := range password {
+		password[i] = dict[rand.Intn(len(dict))]
+	}
+	if symbols != "" {
+		for i := 0; i < rand.Intn(len(password)); i++ {
+			password[rand.Intn(len(password))] = symbols[rand.Intn(len(symbols))]
+		}
+	}
+	return string(password)
+}
 
 func GeneratePassword(w http.ResponseWriter, r *http.Request) {
 	var req requestBody
@@ -26,19 +39,10 @@ func GeneratePassword(w http.ResponseWriter, r *http.Request) {
 	if req.Length == 0 {
 		req.Length = 12
 	}
-	password := make([]byte, req.Length)
-	for i := range password {
-		password[i] = dict[rand.Intn(len(dict))]
-	}
-	symbols := req.Symbols
-	if symbols != "" {
-		for i := 0; i < rand.Intn(len(password)); i++ {
-			password[rand.Intn(len(password))] = symbols[rand.Intn(len(symbols))]
-		}
-	}
 
 	var res responseBody
-	res.Result = string(password)
+
+	res.Result = generator(req.Length, req.Symbols)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
