@@ -31,9 +31,9 @@ make run
 Result **with** symbols parameter
 
 
-<img src="https://i.imgur.com/33ssQuy.jpg" width="250" alt="with symbols">
+<img src="https://i.imgur.com/33ssQuy.jpg" alt="with symbols">
 
 
 Result **without** symbols parameter
 
-<img src="https://i.imgur.com/kNBeYPS.jpg" width="250" alt="with symbols">
+<img src="https://i.imgur.com/kNBeYPS.jpg" alt="with symbols">
