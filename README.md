@@ -28,3 +28,12 @@ make run
 |```/generate```| ```POST```| ```length: <uint>``` <br> ```symbols: <str>```| Generates a password of the specified ```length``` and including the specified ```symbols```
 
 
+Result **with** symbols parameter
+
+
+<img src="https://i.imgur.com/33ssQuy.jpg" width="250" alt="with symbols">
+
+
+Result **without** symbols parameter
+
+<img src="https://i.imgur.com/kNBeYPS.jpg" width="250" alt="with symbols">
