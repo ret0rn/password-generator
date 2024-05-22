@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
-	"math/rand"
+	"math/rand/v2"
 	"net/http"
 
 	"github.com/go-playground/validator/v10"
@@ -24,11 +24,11 @@ const dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 func generator(length uint, symbols string) string {
 	password := make([]byte, length)
 	for i := range password {
-		password[i] = dict[rand.Intn(len(dict))]
+		password[i] = dict[rand.IntN(len(dict))]
 	}
 	if symbols != "" {
-		for i := 0; i < rand.Intn(len(password)); i++ {
-			password[rand.Intn(len(password))] = symbols[rand.Intn(len(symbols))]
+		for i := 0; i < rand.IntN(len(password)); i++ {
+			password[rand.IntN(len(password))] = symbols[rand.IntN(len(symbols))]
 		}
 	}
 	return string(password)

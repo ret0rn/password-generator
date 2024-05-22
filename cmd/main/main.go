@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/ret0rn/password-generator/pkg/routes"
@@ -17,8 +18,13 @@ func init() {
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
-	port := ":80"
 	routes.RegisterPassGenRouter(router)
+	port := ":80"
 	logrus.Infof("Server start at port %s", port)
-	logrus.Fatal(http.ListenAndServe(port, router))
+	server := &http.Server{
+		Addr:              port,
+		ReadHeaderTimeout: 3 * time.Second,
+		Handler:           router,
+	}
+	logrus.Fatal(server.ListenAndServe())
 }
