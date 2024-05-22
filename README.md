@@ -1,7 +1,7 @@
 # Password Generator
 A simple web API designed to generate passwords
 
-[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ret0rn/password-generator?style=plastic)](https://github.com/ret0rn/password-generator/blob/main/go.mod) [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fret0rn%2Fpassword-generator%2Fbadge%3Fref%3Dmain&style=plastic)](https://actions-badge.atrox.dev/ret0rn/password-generator/goto?ref=main) [![Dependabot](https://img.shields.io/badge/dependabot-eneble-brightgreen?style=plastic&logo=dependabot)](https://dependabot.com/) [![GitHub](https://img.shields.io/github/license/ret0rn/password-generator?style=plastic)](https://github.com/ret0rn/password-generator/blob/main/LICENCE)
+[![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/ret0rn/password-generator?style=plastic)](https://github.com/ret0rn/password-generator/blob/main/go.mod) [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fret0rn%2Fpassword-generator%2Fbadge%3Fref%3Dmain&style=plastic)](https://actions-badge.atrox.dev/ret0rn/password-generator/goto?ref=main) [![Dependabot](https://img.shields.io/badge/dependabot-eneble-brightgreen?style=plastic&logo=dependabot)](https://dependabot.com/) [![GitHub](https://img.shields.io/github/license/ret0rn/password-generator?style=plastic&color=brightgreen)](https://github.com/ret0rn/password-generator/blob/main/LICENCE)
 
 ### Setup
 
