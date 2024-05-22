@@ -1,12 +1,9 @@
-.PHONY: build
 build:
 	go mod download
-	go build -o ./build ./cmd/main/main.go
-
-.PHONY: run
+	go build -o ./build/pass-gen ./cmd/main/main.go
 run:
 	go mod download
-	go build -o ./build ./cmd/main/main.go
-	/build
+	go build -o ./build/pass-gen ./cmd/main/main.go
+	./build/pass-gen
 
 .DEFAULT_GOAL := run
