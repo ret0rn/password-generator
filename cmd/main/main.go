@@ -6,8 +6,9 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/ret0rn/password-generator/pkg/routes"
 	"github.com/sirupsen/logrus"
+
+	"github.com/ret0rn/password-generator/pkg/routes"
 )
 
 func init() {

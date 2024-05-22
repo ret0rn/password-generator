@@ -35,6 +35,7 @@ linters:
     - exhaustive # Check exhaustiveness of enum switch statements [fast: true, auto-fix: false]
     - exportloopref # An analyzer that finds exporting pointers for loop variables. [fast: true, auto-fix: false]
     - funlen # Tool for detection of long functions [fast: true, auto-fix: false]
+    - gci # Gci controls golang package import order and makes it always deterministic.
     - gocheckcompilerdirectives # Checks that go compiler directive comments (//go:) are valid.
     - gocyclo # Computes and checks the cyclomatic complexity of functions [fast: true, auto-fix: false]
     - gofmt # Gofmt checks whether code was gofmt-ed. By default, this tool runs with -s option to check for code simplification [fast: true, auto-fix: true]
@@ -59,3 +60,12 @@ linters:
     - unconvert # Remove unnecessary type conversions [fast: true, auto-fix: false]
     - unused # Checks Go code for unused constants, variables, functions and types [fast: false, auto-fix: false]
     - whitespace # Tool for detection of leading and trailing whitespace [fast: true, auto-fix: true]
+
+linters-settings:
+  gci:
+    sections:
+      - standard # Standard section: captures all standard packages.
+      - default # Default section: contains all imports that could not be matched to another section type.
+      - prefix(github.com/ret0rn/password-generator)
+    skip-generated: false # Skip generated files.
+    custom-order: true # Enable custom order of sections.
