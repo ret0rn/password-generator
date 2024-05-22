@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gorilla/mux"
+
 	"github.com/ret0rn/password-generator/pkg/controllers"
 )
 

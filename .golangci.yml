@@ -1,3 +1,25 @@
+run:
+  concurrency: 4
+  timeout: 10m
+  issues-exit-code: 1
+  tests: true
+  build-tags: []
+  skip-dirs: []
+  skip-dirs-use-default: true # skip vendor, third_party, test_data
+
+output:
+  # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
+  formats:
+    - format: colored-line-number
+  # print lines of code with issue, default is true
+  print-issued-lines: true
+  # print linter name in the end of issue text, default is true
+  print-linter-name: true
+  # make issues output unique by line, default is true
+  uniq-by-line: true
+  # add a prefix to the output file references; default is no prefix
+  path-prefix: ""
+
 linters:
   disable-all: true
   enable:
@@ -15,33 +37,35 @@ linters:
     - funlen # Tool for detection of long functions [fast: true, auto-fix: false]
     - gci # Gci controls golang package import order and makes it always deterministic.
     - gocheckcompilerdirectives # Checks that go compiler directive comments (//go:) are valid.
-    # - gocognit # Computes and checks the cognitive complexity of functions [fast: true, auto-fix: false]
-    # - goconst # Finds repeated strings that could be replaced by a constant [fast: true, auto-fix: false]
-    # - gocritic # The most opinionated Go source code linter [fast: true, auto-fix: false]
     - gocyclo # Computes and checks the cyclomatic complexity of functions [fast: true, auto-fix: false]
     - gofmt # Gofmt checks whether code was gofmt-ed. By default, this tool runs with -s option to check for code simplification [fast: true, auto-fix: true]
     - goimports # Goimports does everything that gofmt does. Additionally, it checks unused imports [fast: true, auto-fix: true]
     - goprintffuncname # Checks that printf-like functions are named with `f` at the end [fast: true, auto-fix: false]
-    # - gosec # Inspects source code for security problems [fast: true, auto-fix: false]
     - gosimple # Linter for Go source code that specializes in simplifying code
     - govet # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string [fast: true, auto-fix: false]
     - grouper # An analyzer to analyze expression groups.
     - importas # Enforces consistent import aliases
     - inamedparam # Reports interfaces with unnamed method parameters.
     - ineffassign # Detects when assignments to existing variables are not used [fast: true, auto-fix: false]
-    # - lll # Reports long lines [fast: true, auto-fix: false]
     - makezero # Finds slice declarations with non-zero initial length
     - mirror # Reports wrong mirror patterns of bytes/strings usage
     - misspell # Finds commonly misspelled English words in comments [fast: true, auto-fix: true]
-    # - nakedret # Finds naked returns in functions greater than a specified function length [fast: true, auto-fix: false]
     - noctx # Noctx finds sending http request without context.Context [fast: true, auto-fix: false]
     - nolintlint # Reports ill-formed or insufficient nolint directives [fast: true, auto-fix: false]
     - prealloc # Finds slice declarations that could potentially be preallocated [fast: true, auto-fix: false]
     - rowserrcheck # Checks whether Err of rows is checked successfully [fast: true, auto-fix: false]
-    # - staticcheck # Staticcheck is a go vet on steroids, applying a ton of static analysis checks [fast: true, auto-fix: false]
     - stylecheck # Stylecheck is a replacement for golint [fast: true, auto-fix: false]
     - tenv # tenv is analyzer that detects using os.Setenv instead of t.Setenv since Go1.17
     - typecheck # Like the front-end of a Go compiler, parses and type-checks Go code [fast: true, auto-fix: false]
     - unconvert # Remove unnecessary type conversions [fast: true, auto-fix: false]
     - unused # Checks Go code for unused constants, variables, functions and types [fast: false, auto-fix: false]
     - whitespace # Tool for detection of leading and trailing whitespace [fast: true, auto-fix: true]
+
+linters-settings:
+  gci:
+    sections:
+      - standard # Standard section: captures all standard packages.
+      - default # Default section: contains all imports that could not be matched to another section type.
+      - prefix(github.com/ret0rn/password-generator)
+    skip-generated: false # Skip generated files.
+    custom-order: true # Enable custom order of sections.

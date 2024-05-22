@@ -24,11 +24,12 @@ const dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 func generator(length uint, symbols string) string {
 	password := make([]byte, length)
 	for i := range password {
-		password[i] = dict[rand.Intn(len(dict))]
+		password[i] = dict[rand.Intn(len(dict))] // #nosec G404
 	}
 	if symbols != "" {
-		for i := 0; i < rand.Intn(len(password)); i++ {
-			password[rand.Intn(len(password))] = symbols[rand.Intn(len(symbols))]
+		maxChangeSymbols := rand.Intn(len(password)) // #nosec G404
+		for i := 0; i < maxChangeSymbols; i++ {
+			password[rand.Intn(len(password))] = symbols[rand.Intn(len(symbols))] // #nosec G404
 		}
 	}
 	return string(password)
