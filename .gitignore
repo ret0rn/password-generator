@@ -1,10 +1,23 @@
-### VisualStudioCode ###
-.vscode/*
-.vscode/settings.json
-.vscode/tasks.json
-.vscode/launch.json
-.vscode/extensions.json
-.vscode/*.code-snippets
+#Idea
+.idea/
+
+# CMake
+cmake-build-*/
+
+# builds
+build/
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# VisualStudioCode
+.vscode/
 
 # Local History for Visual Studio Code
 .history/
@@ -12,13 +25,7 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
-### VisualStudioCode Patch ###
+# VisualStudioCode Patch
 # Ignore all local history of files
 .history
 .ionide
-
-# Support for Project snippet scope
-.vscode/*.code-snippets
-
-# Ignore code-workspaces
-*.code-workspace

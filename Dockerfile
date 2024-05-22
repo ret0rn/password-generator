@@ -1,10 +1,11 @@
-FROM golang:1.18.3
-ENV GO111MODULE=on
-WORKDIR /app
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
+FROM golang:alpine AS builder
+WORKDIR /build/
 COPY . .
+RUN go mod download
+RUN go build -o pass-gen cmd/main/main.go
+
+FROM alpine:latest
+WORKDIR /app/
+COPY --from=builder /build/pass-gen .
 EXPOSE 80
-RUN go build -o /password-generator cmd/main/main.go
-CMD ["/password-generator"]
+CMD ["./pass-gen"]
